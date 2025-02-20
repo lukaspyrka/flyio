@@ -1,0 +1,1 @@
+CMD ["gunicorn", "-w", "2", "-t", "300", "main:app"]
