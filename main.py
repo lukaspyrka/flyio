@@ -5,7 +5,9 @@ import traceback
 import time
 from flask import Flask, request, jsonify
 from playwright.sync_api import sync_playwright
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
 url = "https://www.viewstats.com/@mrbeast/channelytics"
 
 
