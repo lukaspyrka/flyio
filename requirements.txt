@@ -3,3 +3,4 @@ requests
 gunicorn
 pip
 playwright
+logging
