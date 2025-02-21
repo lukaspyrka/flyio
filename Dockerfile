@@ -19,3 +19,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends libnss3 libatk1
 
 RUN playwright install-deps
 RUN pip install --upgrade pip setuptools wheel
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install -r requirements.txt
