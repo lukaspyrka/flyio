@@ -6,7 +6,7 @@ import time
 from flask import Flask, request, jsonify
 from playwright.sync_api import sync_playwright
 import logging
-
+os.system("rm -rf /app/logs/*")
 logging.basicConfig(level=logging.DEBUG)
 url = "https://www.viewstats.com/@mrbeast/channelytics"
 
@@ -28,6 +28,7 @@ def get_view_count(url):
         except Exception as e:
             print(f"Błąd Playwright: {e}")
         if not page.locator(".view-count").first.is_visible():
+            page.close()
             browser.close()
             return "nie znaleziono"
 
@@ -37,6 +38,7 @@ def get_view_count(url):
         view_count = page.locator(".view-count").first.inner_text()
         
         # Zamknięcie przeglądarki
+        page.close()
         browser.close()
         gc.collect()
         return view_count
